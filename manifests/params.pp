@@ -25,7 +25,7 @@ class unbound::params {
   }
 
   $service_status = $::operatingsystem ? {
-    default => true,
+    default => false,
   }
 
   $process = $::operatingsystem ? {
