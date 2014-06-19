@@ -226,6 +226,7 @@ class unbound (
   $package             = params_lookup( 'package' ),
   $service             = params_lookup( 'service' ),
   $service_status      = params_lookup( 'service_status' ),
+  $service_hasrestart  = params_lookup( 'service_hasrestart' ),
   $process             = params_lookup( 'process' ),
   $process_args        = params_lookup( 'process_args' ),
   $process_user        = params_lookup( 'process_user' ),
@@ -339,6 +340,7 @@ class unbound (
     pattern    => $unbound::process,
     require    => Package[$unbound::package],
     noop       => $unbound::bool_noops,
+    hasrestart => $unbound::service_hasrestart,
   }
 
   file { 'unbound.conf':

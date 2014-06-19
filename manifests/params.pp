@@ -28,6 +28,10 @@ class unbound::params {
     default => false,
   }
 
+  $service_hasrestart = $::operatingsystem ? {
+    default => true,
+  }
+
   $process = $::operatingsystem ? {
     default => 'unbound',
   }
